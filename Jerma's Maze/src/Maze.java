@@ -82,7 +82,6 @@ public class Maze extends Canvas implements KeyListener, Runnable {
 			you = new ImageIcon(getClass().getClassLoader().getResource("images/playerTile.png"));
 	   }
 	
-       //graphics stuff
 	   public void paint(Graphics g)
 	   {
 		  //draws the grid as it is
