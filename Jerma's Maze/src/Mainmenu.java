@@ -45,7 +45,7 @@ public class Mainmenu extends JPanel{
 	private ImageIcon ses;
 	
 	public Mainmenu(JFrame frame, Audio radio) {
-		background = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("images/enemyTitleScreen.PNG")));
+		background = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("images/enemyTitleScreen.png")));
 		startButton = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("images/startGame.png")));
 		playAudio1 = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("images/playAudio.png")));
 		playAudio2 = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("images/playAudio.png")));
