@@ -1,15 +1,22 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.net.URL;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
-import java.io.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class Maze extends Canvas implements KeyListener, Runnable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//game variables
 	private boolean[] arrow;
 	private boolean shoot;
@@ -24,7 +31,7 @@ public class Maze extends Canvas implements KeyListener, Runnable {
 	private Audio speaker;
 	private Spider enemy;
 	
-	//the sprites
+	//the images
 	private ImageIcon floor;
 	private ImageIcon wall;
 	private ImageIcon giantEnemySpider;
@@ -35,7 +42,6 @@ public class Maze extends Canvas implements KeyListener, Runnable {
 	private ImageIcon horizontalBullet;
 	private ImageIcon horizontalBulletRefill;
 	private ImageIcon you;
-	private URL url;
 
 	private JFrame border;
 	
@@ -98,30 +104,28 @@ public class Maze extends Canvas implements KeyListener, Runnable {
 				  case 0: 
 					  for (int j = 0; j < i * 2; j++) {
 						  verticalBullet.paintIcon(this, g2, player.getXPos() * 20, ((player.getYPos() - 1) * 20) + 10 - (10 * j));
-						  //g2.drawImage(verticalBullet,player.getXPos() * 20, ((player.getYPos() - 1) * 20) + 10 - (10 * j),this);
-						  try { Thread.currentThread().sleep(50); } catch (Exception e) {}
+						  try { Thread.currentThread(); Thread.sleep(50); } catch (Exception e) {}
 						  verticalBulletRefill.paintIcon(this, g2, player.getXPos() * 20, ((player.getYPos() - 1) * 20) + 10 - (10 * j));
-						  //g2.drawImage(verticalBulletRefill, player.getXPos() * 20, ((player.getYPos() - 1) * 20) + 10 - (10 * j), this);
 					  }
 					  break;
 				  case 1: 
 					  for (int j = 0; j < i * 2; j++) {
 						  verticalBullet.paintIcon(this, g2, player.getXPos() * 20, ((player.getYPos() + 1) * 20) + 10 + (10 * j));
-						  try { Thread.currentThread().sleep(50); } catch (Exception e) {}
+						  try { Thread.currentThread(); Thread.sleep(50); } catch (Exception e) {}
 						  verticalBulletRefill.paintIcon(this, g2, player.getXPos() * 20, ((player.getYPos() + 1) * 20) + 10 + (10 * j));
 					  }
 					  break;
 				  case 2: 
 					  for (int j = 0; j < i * 2; j++) {
 						  horizontalBullet.paintIcon(this, g2, ((player.getXPos() - 1) * 20) + 10 - (10 * j), player.getYPos() * 20);
-						  try { Thread.currentThread().sleep(50); } catch (Exception e) {}
+						  try { Thread.currentThread(); Thread.sleep(50); } catch (Exception e) {}
 						  horizontalBulletRefill.paintIcon(this, g2, ((player.getXPos() - 1) * 20) + 10 - (10 * j), player.getYPos() * 20);
 					  }
 					  break;
 				  case 3: 
 					  for (int j = 0; j < i * 2; j++) {
 						  horizontalBullet.paintIcon(this, g2, ((player.getXPos() + 1) * 20) + 10 + (10 * j), player.getYPos() * 20);
-						  try { Thread.currentThread().sleep(50); } catch (Exception e) {}
+						  try { Thread.currentThread(); Thread.sleep(50); } catch (Exception e) {}
 						  horizontalBulletRefill.paintIcon(this, g2, ((player.getXPos() + 1) * 20) + 10 + (10 * j), player.getYPos() * 20);
 					  }
 					  break;
@@ -557,7 +561,7 @@ public class Maze extends Canvas implements KeyListener, Runnable {
 				case KeyEvent.VK_M : 
 					try { speaker.stopMainAudio(); } catch (Exception f) {}
 					Audio speaker1 = new Audio();
-					Mainmenu restart = new Mainmenu(border, speaker1);
+					new Mainmenu(border, speaker1);
 					break;
 				case KeyEvent.VK_R :
 					try { speaker.stopMainAudio(); } catch (Exception f) {}
@@ -594,7 +598,8 @@ public class Maze extends Canvas implements KeyListener, Runnable {
 		   	{
 		   		while(player.getHealth() > 0 && enemy.getHealth() > 0)
 		   		{
-		   		   Thread.currentThread().sleep(20);
+		   		   Thread.currentThread();
+		   		   Thread.sleep(20);
 		           repaint();
 		         }
 		   		try { speaker.stopMainAudio(); } catch(Exception e) {}

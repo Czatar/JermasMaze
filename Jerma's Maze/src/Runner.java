@@ -1,5 +1,5 @@
-import javax.swing.*;
-import java.io.*;
+import java.io.IOException;
+import javax.swing.JFrame;
 
 public class Runner
 {
@@ -14,6 +14,6 @@ public class Runner
 		
 		Audio radio = new Audio();
 		 
-		Mainmenu screen = new Mainmenu(frame, radio);	
+		new Mainmenu(frame, radio);	
 	}  
 }

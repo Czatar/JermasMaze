@@ -1,11 +1,13 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Rooms {
 
 	private int[][] room1, room2, room3, room4, room5, room6, room7, room8, room9;
 	ArrayList<int[][]> rooms;
-	private File file;
 	
 	public Rooms() throws IOException {
 		room1 = new int[30][30];
