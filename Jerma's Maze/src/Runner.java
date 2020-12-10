@@ -14,6 +14,6 @@ public class Runner
 		
 		Audio radio = new Audio();
 		 
-		new Mainmenu(frame, radio);	
+		new Mainmenu(frame, radio);
 	}  
 }
